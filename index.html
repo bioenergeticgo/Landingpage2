@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabriela Ocanto · Terapeuta Bioenergética · Que la Luz nos Acompañe</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #3e9b94;
+    --teal-deep: #1f5f5a;
+    --teal-pale: #e3f3f1;
+    --purple: #9b7fb0;
+    --purple-deep: #4f3d64;
+    --purple-pale: #f1ebf6;
+    --gold: #c9a227;
+    --gold-light: #e6c860;
+    --gold-pale: #fdf6dc;
+    --warm-white: #fdfbf6;
+    --text: #211d2c;
+    --text-mid: #4a4457;
+    --cream: #f7f3ec;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--warm-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  .inner { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
+  .tag {
+    display: inline-block; font-size: 0.78rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold); font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .h2 {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.25;
+    color: var(--text); margin-bottom: 18px;
+  }
+  .h2 em { font-style: italic; color: var(--purple-deep); }
+  .lead { font-size: 1.02rem; color: var(--text-mid); line-height: 1.8; font-weight: 300; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(.2,.7,.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  section { padding: 110px 0; position: relative; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 14px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(253,251,246,0.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201,162,39,0.2);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; color: var(--text); font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.8rem; letter-spacing: 0.05em;
+    font-weight: 600; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), #a07a10);
+    color: white !important; padding: 9px 22px;
+    border-radius: 40px; font-size: 0.78rem !important;
+    box-shadow: 0 4px 16px rgba(201,162,39,0.35);
+  }
+  @media (max-width: 900px) { .nav-links { display: none; } }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(150deg, var(--teal-deep) 0%, #2a4a63 45%, var(--purple-deep) 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    padding: 110px 48px 60px;
+  }
+  .hero-light { position: absolute; inset: 0; pointer-events: none; }
+  .light-orb { position: absolute; border-radius: 50%; filter: blur(95px); opacity: 0.32; }
+  .lo1 { width: 620px; height: 620px; background: var(--gold); top: -160px; right: -120px; animation: pulse 8s ease-in-out infinite; }
+  .lo2 { width: 420px; height: 420px; background: var(--teal); bottom: -90px; left: -90px; animation: pulse 11s ease-in-out infinite 2s; }
+  .lo3 { width: 320px; height: 320px; background: var(--purple); top: 45%; left: 32%; animation: pulse 9s ease-in-out infinite 4s; opacity: 0.18; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.15); opacity: 0.45; } }
+
+  .hero-inner {
+    max-width: 1140px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    gap: 70px; align-items: center;
+    position: relative; z-index: 2; width: 100%;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: var(--gold-light); padding: 6px 16px;
+    border-radius: 40px; font-size: 0.75rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s ease both;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4.3vw, 3.8rem);
+    line-height: 1.18; font-weight: 400; color: white;
+    margin-bottom: 18px;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.08rem; font-style: italic;
+    color: rgba(255,255,255,0.65); margin-bottom: 26px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .hero-sub {
+    font-size: 0.96rem; color: rgba(255,255,255,0.72);
+    line-height: 1.85; margin-bottom: 40px; font-weight: 300;
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.6s both; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), #a07a10);
+    color: white; padding: 16px 34px; border-radius: 50px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 700;
+    transition: all 0.3s; box-shadow: 0 8px 28px rgba(201,162,39,0.4);
+  }
+  .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(201,162,39,0.55); }
+  .btn-ghost-light {
+    color: rgba(255,255,255,0.85); padding: 16px 34px;
+    border-radius: 50px; text-decoration: none;
+    font-size: 0.9rem; font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.28);
+    transition: all 0.3s;
+  }
+  .btn-ghost-light:hover { background: rgba(255,255,255,0.08); color: white; }
+
+  .hero-photo-side { display: flex; justify-content: center; animation: fadeUp 0.8s ease 0.3s both; }
+  .hero-photo-frame {
+    width: 380px; height: 380px; border-radius: 30px;
+    background: linear-gradient(150deg, var(--gold), var(--purple));
+    padding: 6px; box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  }
+  .hero-photo-inner { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; }
+  .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ── SERVICES ── */
+  #online, #presencial { background: var(--warm-white); }
+  #presencial { background: var(--cream); }
+  .sec-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
+
+  .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  .svc-card {
+    background: white; border-radius: 20px; padding: 32px 30px;
+    display: flex; gap: 20px; align-items: flex-start;
+    box-shadow: 0 10px 30px rgba(30,20,50,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.35s, box-shadow 0.35s;
+  }
+  .svc-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(30,20,50,0.1); }
+  .svc-icon {
+    flex-shrink: 0; width: 58px; height: 58px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; background: var(--gold-pale);
+  }
+  .svc-icon.teal { background: var(--teal-pale); }
+  .svc-icon.purple { background: var(--purple-pale); }
+  .svc-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+  .svc-desc { font-size: 0.92rem; color: var(--text-mid); line-height: 1.65; }
+
+  @media (max-width: 800px) { .svc-grid { grid-template-columns: 1fr; } }
+
+  /* ── QUOTE ── */
+  #quote {
+    background: linear-gradient(135deg, var(--purple-pale), var(--teal-pale));
+  }
+  .quote-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center; }
+  .quote-mark { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold); line-height: 0.5; margin-bottom: 18px; display: block; }
+  .quote-text {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+    font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.55; color: var(--text);
+    margin-bottom: 26px;
+  }
+  .quote-sign { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--purple-deep); font-weight: 600; }
+  .quote-photo { border-radius: 24px; overflow: hidden; box-shadow: 0 25px 60px rgba(30,20,50,0.18); }
+  .quote-photo img { width: 100%; display: block; object-fit: cover; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--warm-white); }
+  .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 64px; align-items: center; }
+  .about-photo { border-radius: 24px; overflow: hidden; aspect-ratio: 3/4; box-shadow: 0 25px 60px rgba(30,20,50,0.15); }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-years {
+    display: flex; align-items: baseline; gap: 12px; margin: 20px 0 22px;
+    padding: 16px 22px; background: var(--gold-pale); border-radius: 16px; width: fit-content;
+  }
+  .about-years strong { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); font-weight: 700; }
+  .about-years span { font-size: 0.88rem; color: var(--text-mid); max-width: 200px; }
+  .about-p { font-size: 0.98rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 16px; font-weight: 300; }
+  .about-btns { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+  .btn-wa, .btn-ig {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 26px; border-radius: 50px; text-decoration: none;
+    font-size: 0.85rem; font-weight: 700; color: white;
+    transition: transform 0.3s;
+  }
+  .btn-wa:hover, .btn-ig:hover { transform: translateY(-3px); }
+  .btn-wa { background: linear-gradient(135deg, #25D366, #1aa34a); }
+  .btn-ig { background: linear-gradient(135deg, #b96ad9, var(--purple-deep)); }
+
+  /* ── FORMACION ── */
+  #formacion { background: var(--cream); }
+  .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+  .form-col-title {
+    font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600;
+    color: var(--text); margin-bottom: 22px; padding-bottom: 14px;
+    border-bottom: 2px solid rgba(201,162,39,0.25);
+  }
+  .form-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .form-item:last-child { border-bottom: none; }
+  .form-badge {
+    flex-shrink: 0; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em;
+    text-transform: uppercase; color: white; padding: 5px 12px; border-radius: 30px;
+    white-space: nowrap;
+  }
+  .form-label { font-size: 0.94rem; color: var(--text); font-weight: 600; }
+
+  /* ── ALIANZA ── */
+  #alianza {
+    background: linear-gradient(150deg, var(--purple-deep), var(--teal-deep));
+    color: white;
+  }
+  #alianza .tag { color: var(--gold-light); }
+  #alianza .h2 { color: white; }
+  #alianza .h2 em { color: var(--gold-light); }
+  .alianza-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: rgba(255,255,255,0.75); margin-bottom: 30px; }
+  .alianza-p { font-size: 0.98rem; color: rgba(255,255,255,0.78); line-height: 1.85; max-width: 720px; margin-bottom: 16px; font-weight: 300; }
+
+  /* ── CTA ── */
+  #cta { background: var(--warm-white); text-align: center; }
+  .cta-lux { font-size: 2.4rem; color: var(--gold); display: block; margin-bottom: 14px; }
+  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+  .btn-white {
+    background: linear-gradient(135deg, var(--gold), #a07a10); color: white;
+    padding: 17px 38px; border-radius: 50px; text-decoration: none;
+    font-weight: 700; font-size: 0.92rem; box-shadow: 0 10px 30px rgba(201,162,39,0.35);
+    transition: transform 0.3s;
+  }
+  .btn-white:hover { transform: translateY(-3px); }
+  .btn-outline-w {
+    padding: 17px 38px; border-radius: 50px; text-decoration: none;
+    font-weight: 600; font-size: 0.92rem; color: var(--text);
+    border: 1.5px solid rgba(0,0,0,0.15); transition: all 0.3s;
+  }
+  .btn-outline-w:hover { border-color: var(--gold); color: var(--gold); }
+  .cta-contact { margin-top: 26px; color: var(--text-mid); font-size: 0.88rem; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--text); color: rgba(255,255,255,0.6); text-align: center; padding: 50px 24px; }
+  .footer-brand { font-family: 'Playfair Display', serif; color: white; font-size: 1.1rem; margin-bottom: 8px; }
+  .footer-brand span { color: var(--gold-light); }
+  footer p { font-size: 0.82rem; margin-top: 6px; }
+
+  @media (max-width: 900px) {
+    .hero-inner, .quote-grid, .about-grid, .form-cols { grid-template-columns: 1fr; }
+    .hero-photo-side { order: -1; }
+    .hero-photo-frame { width: 280px; height: 280px; }
+    section { padding: 70px 0; }
+    .inner { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <img class="nav-logo-img" src="gabriela-logo.png" alt="Gabriela Ocanto" />
+    <div class="nav-logo">Gabriela <span>Ocanto</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#online">Online</a></li>
+    <li><a href="#presencial">Presencial</a></li>
+    <li><a href="#formacion">Formación</a></li>
+    <li><a href="#about">Conóceme</a></li>
+    <li><a href="https://wa.me/584147976997" class="nav-cta">Escribir</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-light">
+    <div class="light-orb lo1"></div>
+    <div class="light-orb lo2"></div>
+    <div class="light-orb lo3"></div>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">✦ Terapeuta Bioenergética</span>
+      <h1 class="hero-title">Que la Luz nos <em>Acompañe</em></h1>
+      <p class="hero-tagline">Salud, Consciencia y Sanación Holística Integral</p>
+      <p class="hero-sub">Más de 40 años dedicados al crecimiento personal y profesional. Acompaño procesos que integran el cuerpo, la energía y la consciencia — combinando terapias corporales, técnicas energéticas ancestrales y herramientas oraculares para que fluyas con humildad, claridad y alegría.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/584147976997" class="btn-gold">💬 Agenda tu sesión</a>
+        <a href="#about" class="btn-ghost-light">Conóceme →</a>
+      </div>
+    </div>
+    <div class="hero-photo-side">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-inner">
+          <img src="gabriela-hero.png" alt="Gabriela Ocanto" onerror="this.style.display='none';this.parentElement.innerHTML='✦';" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTAS ONLINE -->
+<section id="online">
+  <div class="inner">
+    <div class="sec-head reveal">
+      <span class="tag">Terapias a distancia</span>
+      <h2 class="h2">Consultas y Terapias <em>Online</em></h2>
+      <p class="lead">Sesiones vía videollamada, sin importar dónde te encuentres.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">🔮</div>
+        <div>
+          <div class="svc-name">Coaching Oracular</div>
+          <p class="svc-desc">Péndulo, Tarot, Astrología, I Ching y Código de la Emoción para tomar decisiones con claridad.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon teal">🌿</div>
+        <div>
+          <div class="svc-name">Flores de Bach & Emoción</div>
+          <p class="svc-desc">Liberación de emociones atrapadas para tratar el estrés, insomnio y miedos.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon purple">✨</div>
+        <div>
+          <div class="svc-name">Cirugía Energética</div>
+          <p class="svc-desc">Restauración vibracional de alta frecuencia con cristales, aromas y péndulo.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">👥</div>
+        <div>
+          <div class="svc-name">Constelaciones Familiares</div>
+          <p class="svc-desc">Exploración de las Fuerzas del Amor para sanar traumas familiares con paz y ternura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTAS PRESENCIALES -->
+<section id="presencial">
+  <div class="inner">
+    <div class="sec-head reveal">
+      <span class="tag">Terapias en consultorio</span>
+      <h2 class="h2">Consultas y Terapias <em>Presenciales</em></h2>
+      <p class="lead">Trabajo corporal y energético directo, para una sanación profunda.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon teal">🧠</div>
+        <div>
+          <div class="svc-name">Access Bars</div>
+          <p class="svc-desc">Toque suave de 32 puntos en la cabeza para liberar la mente y calmar el estrés.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon purple">💧</div>
+        <div>
+          <div class="svc-name">Drenaje Linfático</div>
+          <p class="svc-desc">Tratamiento depurativo ideal para pre/post operatorios, embarazo y sistema nervioso.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🪡</div>
+        <div>
+          <div class="svc-name">Medicina China</div>
+          <p class="svc-desc">Acupuntura y Moxibustión integral para resolver la raíz de las afecciones.</p>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon teal">🤲</div>
+        <div>
+          <div class="svc-name">Masoterapia & Dolor</div>
+          <p class="svc-desc">Evaluación combinando Quiropraxia, Neuromuscular y Piedras Calientes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section id="quote">
+  <div class="inner">
+    <div class="quote-grid">
+      <div class="reveal">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">La honestidad con integridad ante ti mismo, la conexión con el amor universal y la sintonía con la fuerza de la creación son la clave para fluir con humildad, claridad y alegría al tomar la vida.</p>
+        <p class="quote-sign">— Qué la luz los acompañe</p>
+      </div>
+      <div class="quote-photo reveal">
+        <img src="gabriela-oils.jpg" alt="Gabriela Ocanto" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="gabriela-about.png" alt="Gabriela Ocanto" style="object-position: top center;" onerror="this.style.display='none';this.parentElement.innerHTML='✦';" />
+      </div>
+      <div class="reveal">
+        <span class="tag">Para quienes me están conociendo</span>
+        <h2 class="h2">Hola, soy <em>Gabriela Ocanto</em></h2>
+        <div class="about-years">
+          <strong>40+</strong>
+          <span>años dedicados al crecimiento personal y profesional</span>
+        </div>
+        <p class="about-p">
+          Gracias a la investigación y al estudio constante, hoy me defino como terapeuta Bioenergético. Desde la infancia, y gracias a mi entorno familiar, desarrollé una sensibilidad empática y capacidad de observación, rodeada de magia por una capacidad de percepción que me permitía distinguir realidades entre lo visible y lo invisible.
+        </p>
+        <p class="about-p">
+          Descubrir mi talento y encontrarle un sentido a tan temprana edad ha sido un regalo. Me encanta enseñar: a relajarse y respirar, a encontrar el origen de un malestar y brindar herramientas para cambiar y sanar, a mejorar la relación contigo mismo y con los demás, a reconocer el bienestar, a pensar y sentir positivamente — en fin, a conectarte con la vida y escuchar el corazón.
+        </p>
+        <div class="about-btns">
+          <a href="https://wa.me/584147976997" class="btn-wa">
+            <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp · +58 414 7976997
+          </a>
+          <a href="https://instagram.com/gabriocanto" class="btn-ig">
+            <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            @gabriocanto
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMACION -->
+<section id="formacion">
+  <div class="inner">
+    <div class="sec-head reveal">
+      <span class="tag">Formación complementaria</span>
+      <h2 class="h2">Técnicas y <em>especialidades</em></h2>
+      <p class="lead">Un recorrido de formación continua en lo corporal y lo energético.</p>
+    </div>
+    <div class="form-cols">
+      <div class="reveal">
+        <div class="form-col-title">Técnicas Corporales</div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--purple);">Especialidad</span>
+          <span class="form-label">Masaje Terapéutico</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--gold);">Alineación</span>
+          <span class="form-label">Quiropraxia & Neuromuscular</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--teal);">Depuración</span>
+          <span class="form-label">Drenaje Linfático Manual</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--gold);">Bienestar</span>
+          <span class="form-label">Masaje con Piedras Calientes</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--gold);">Bienestar</span>
+          <span class="form-label">Masaje Terapéutico Sexual</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--gold);">Bienestar</span>
+          <span class="form-label">Shantala & Piedras Calientes</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="form-col-title">Técnicas Energéticas</div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--purple);">Curso Básico</span>
+          <span class="form-label">Manejo de la Energía a través del Péndulo</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--gold);">Práctica</span>
+          <span class="form-label">Aliados Energéticos</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--teal);">Práctica</span>
+          <span class="form-label">Mudras para toda situación</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--purple);">Oracular</span>
+          <span class="form-label">Tarot (Arcanos Mayores)</span>
+        </div>
+        <div class="form-item">
+          <span class="form-badge" style="background:var(--gold);">Oracular</span>
+          <span class="form-label">Quiromancia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALIANZA -->
+<section id="alianza">
+  <div class="inner">
+    <div class="reveal" style="max-width:720px;">
+      <span class="tag">Un nuevo comienzo</span>
+      <h2 class="h2">En este nuevo comienzo, <em>cumpliendo sueños</em></h2>
+      <p class="alianza-sub">En esta alianza con Lis Arispe… en este espacio creado con Amor…</p>
+      <p class="alianza-p">Invitación a actividades grupales que brinden oportunidad de crecimiento, información en temas relacionados al bienestar, y orientación para mejorar hábitos que incrementen la calidad de vida.</p>
+      <p class="alianza-p">Además, acompañar en los proyectos que iremos compartiendo contigo, con más detalle, muy pronto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="inner">
+    <div class="reveal">
+      <span class="cta-lux">✦</span>
+      <h2 class="h2" style="text-align:center; max-width:560px; margin:0 auto 14px;">¿Lista para comenzar tu <em>proceso de sanación?</em></h2>
+      <p class="lead" style="max-width:480px; margin:0 auto 44px; text-align:center;">Sesiones disponibles online y presenciales. Escríbeme y conversamos sin compromiso sobre lo que necesitas.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/584147976997" class="btn-white">💬 Escribirme por WhatsApp</a>
+        <a href="https://instagram.com/gabriocanto" class="btn-outline-w">📷 @gabriocanto</a>
+      </div>
+      <p class="cta-contact">WhatsApp: <strong>+58 414 7976997</strong> · Instagram: <strong>@gabriocanto</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Gabriela <span>Ocanto</span> · Terapeuta Bioenergética</div>
+  <p>Que la Luz nos Acompañe ✦</p>
+  <p>© 2025 · Todos los derechos reservados</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in'), i * 70);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
