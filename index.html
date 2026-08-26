@@ -250,6 +250,31 @@
   .alianza-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: rgba(255,255,255,0.75); margin-bottom: 30px; }
   .alianza-p { font-size: 0.98rem; color: rgba(255,255,255,0.78); line-height: 1.85; max-width: 720px; margin-bottom: 16px; font-weight: 300; }
 
+  .epiluz-card {
+    margin-top: 40px; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 24px; padding: 36px 40px;
+    backdrop-filter: blur(6px);
+    max-width: 900px;
+  }
+  .epiluz-head { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+  .epiluz-logo { width: 56px; height: 56px; border-radius: 50%; background: white; padding: 6px; object-fit: contain; flex-shrink: 0; }
+  .epiluz-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white; font-weight: 600; }
+  .epiluz-title span { color: var(--gold-light); font-style: italic; }
+  .epiluz-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-top: 2px; }
+  .epiluz-p { font-size: 0.94rem; color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 24px; font-weight: 300; max-width: 640px; }
+  .epiluz-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 30px; margin-bottom: 26px; }
+  .epiluz-item { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+  .epiluz-item .dot { color: var(--teal); font-size: 1rem; line-height: 1.5; flex-shrink: 0; }
+  .epiluz-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .epiluz-links a {
+    color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.85rem;
+    font-weight: 600; display: inline-flex; align-items: center; gap: 7px;
+    transition: color 0.3s;
+  }
+  .epiluz-links a:hover { color: var(--gold-light); }
+  @media (max-width: 700px) { .epiluz-grid { grid-template-columns: 1fr; } .epiluz-card { padding: 28px 24px; } }
+
   /* ── CTA ── */
   #cta { background: var(--warm-white); text-align: center; }
   .cta-lux { font-size: 2.4rem; color: var(--gold); display: block; margin-bottom: 14px; }
@@ -493,7 +518,7 @@
         </div>
         <div class="form-item">
           <span class="form-badge" style="background:var(--gold);">Bienestar</span>
-          <span class="form-label">Shantala</span>
+          <span class="form-label">Shantala & Piedras Calientes</span>
         </div>
       </div>
       <div class="reveal">
@@ -530,8 +555,30 @@
       <span class="tag">Un nuevo comienzo</span>
       <h2 class="h2">En este nuevo comienzo, <em>cumpliendo sueños</em></h2>
       <p class="alianza-sub">En esta alianza con Lis Arispe… en este espacio creado con Amor…</p>
-      <p class="alianza-p">Invitación a actividades grupales que brinden oportunidad de crecimiento, información en temas relacionados al bienestar, y orientación para mejorar hábitos que incrementen la calidad de vida.</p>
+  
       <p class="alianza-p">Además, acompañar en los proyectos que iremos compartiendo contigo, con más detalle, muy pronto.</p>
+
+      <div class="epiluz-card">
+        <div class="epiluz-head">
+          <img src="epiluz-logo.png" alt="Epiluz" class="epiluz-logo" onerror="this.style.display='none';" />
+          <div>
+            <div class="epiluz-title">Epiluz <span>· Test Epigenético</span></div>
+            <div class="epiluz-tagline">Conócete desde la raíz, transforma tu vida</div>
+          </div>
+        </div>
+        <p class="epiluz-p">Como parte de esta alianza, sumo a mi acompañamiento un test epigenético que en minutos te entrega un mapa personal, único y completo sobre tu cuerpo y tu bienestar — una herramienta más para tu proceso de transformación.</p>
+        <div class="epiluz-grid">
+          <div class="epiluz-item"><span class="dot">●</span> Gestionar tus emociones y reducir el estrés</div>
+          <div class="epiluz-item"><span class="dot">●</span> Optimizar tu vitalidad y aumentar tu energía</div>
+          <div class="epiluz-item"><span class="dot">●</span> Mejorar tu nutrición de forma personalizada</div>
+          <div class="epiluz-item"><span class="dot">●</span> Hacer posible una longevidad saludable</div>
+        </div>
+        <div class="epiluz-links">
+          <a href="https://www.epiluz.com" target="_blank" rel="noopener">🌐 www.epiluz.com</a>
+          <a href="https://facebook.com/epiluz" target="_blank" rel="noopener">📘 Facebook · epiluz</a>
+          <a href="https://instagram.com/epiluzoficial" target="_blank" rel="noopener">📷 Instagram · epiluzoficial</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
